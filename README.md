@@ -1,62 +1,62 @@
 # Coincheck MCP Server
 
-A Model Context Protocol (MCP) server that integrates with the Coincheck cryptocurrency exchange API, allowing Claude Desktop to interact with Coincheck services.
+Coincheck暗号通貨取引所APIと統合するModel Context Protocol (MCP)サーバー。Claude DesktopからCoincheckサービスを操作できます。
 
-## Features
+## 機能
 
-### Public APIs
-- **get_ticker** - Get current ticker information for trading pairs
-- **get_trades** - Get recent trades for a trading pair
-- **get_orderbook** - Get order book data
-- **get_exchange_status** - Check exchange status
-- **calculate_order_rate** - Calculate order rates for buy/sell orders
+### パブリックAPI
+- **get_ticker** - 取引ペアの現在のティッカー情報を取得
+- **get_trades** - 取引ペアの最近の取引履歴を取得
+- **get_orderbook** - 板情報を取得
+- **get_exchange_status** - 取引所のステータスを確認
+- **calculate_order_rate** - 売買注文のレートを計算
 
-### Account APIs
-- **get_balance** - Get account balance information
-- **get_accounts** - Get account information
+### アカウントAPI
+- **get_balance** - アカウントの残高情報を取得
+- **get_accounts** - アカウント情報を取得
 
-### Trading APIs
-- **get_transactions** - Get transaction history
-- **get_open_orders** - Get list of open orders
-- **create_order** - Create new buy/sell orders
-- **cancel_order** - Cancel existing orders
-- **get_order** - Get details of specific orders
+### 取引API
+- **get_transactions** - 取引履歴を取得
+- **get_open_orders** - 未約定の注文一覧を取得
+- **create_order** - 新規売買注文を作成
+- **cancel_order** - 既存の注文をキャンセル
+- **get_order** - 特定の注文の詳細を取得
 
-## Requirements
+## 必要条件
 
-- Go 1.21 or higher
-- Coincheck API credentials (API Key and Secret)
+- Go 1.21以上
+- Coincheck APIクレデンシャル（APIキーとシークレット）
 - Claude Desktop
 
-## Installation
+## インストール
 
-1. Clone the repository:
+1. リポジトリをクローン:
 ```bash
 git clone https://github.com/sg3t41/coincheck-mcp-server.git
 cd coincheck-mcp-server
 ```
 
-2. Build the server:
+2. サーバーをビルド:
 ```bash
 go build -o coincheck-mcp-server main.go
 ```
 
-## Configuration
+## 設定
 
-### 1. Set up API Credentials
+### 1. APIクレデンシャルの設定
 
-Get your API credentials from [Coincheck](https://coincheck.com/ja/exchange/api_settings).
+[Coincheck](https://coincheck.com/ja/exchange/api_settings)からAPIクレデンシャルを取得してください。
 
-### 2. Configure Claude Desktop
+### 2. Claude Desktopの設定
 
-Add the following configuration to your Claude Desktop config file:
+Claude Desktopの設定ファイルに以下の設定を追加してください：
 
-**Location:**
+**設定ファイルの場所:**
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 - Linux: `~/.config/Claude/claude_desktop_config.json`
 
-**Configuration:**
+**設定内容:**
 ```json
 {
   "mcpServers": {
@@ -71,14 +71,14 @@ Add the following configuration to your Claude Desktop config file:
 }
 ```
 
-Replace:
-- `/path/to/coincheck-mcp-server` with the actual path to your built binary
-- `your_api_key_here` with your Coincheck API key
-- `your_api_secret_here` with your Coincheck API secret
+以下を置き換えてください:
+- `/path/to/coincheck-mcp-server` - ビルドしたバイナリへの実際のパス
+- `your_api_key_here` - あなたのCoincheck APIキー
+- `your_api_secret_here` - あなたのCoincheck APIシークレット
 
-### 3. Using Environment Variables (Optional)
+### 3. 環境変数の使用（オプション）
 
-Instead of hardcoding credentials in the config, you can create a shell script:
+設定ファイルにクレデンシャルをハードコーディングする代わりに、シェルスクリプトを作成できます：
 
 ```bash
 #!/bin/bash
@@ -87,7 +87,7 @@ export COINCHECK_API_SECRET="${COINCHECK_API_SECRET}"
 exec /path/to/coincheck-mcp-server
 ```
 
-Then update your Claude Desktop config to use the script:
+その後、Claude Desktopの設定をスクリプトを使用するように更新：
 ```json
 {
   "mcpServers": {
@@ -98,74 +98,70 @@ Then update your Claude Desktop config to use the script:
 }
 ```
 
-## Usage
+## 使用方法
 
-1. Start Claude Desktop
-2. Type `@coincheck` to see available tools
-3. Use natural language to interact with Coincheck:
+1. Claude Desktopを起動
+2. `@coincheck`と入力して利用可能なツールを確認
+3. 自然言語でCoincheckと対話：
 
-### Examples
+### 使用例
 ```
-@coincheck get the current BTC price
-@coincheck show my account balance
-@coincheck get order book for DOGE
-@coincheck create a buy order for 100 DOGE at 25 JPY
-@coincheck cancel order 12345
+@coincheck BTCの現在価格を取得
+@coincheck アカウントの残高を表示
+@coincheck DOGEの板情報を取得
+@coincheck 100 DOGEを25円で買い注文を作成
+@coincheck 注文12345をキャンセル
 ```
 
-## Supported Trading Pairs
+## サポートされている取引ペア
 
-- btc_jpy (Bitcoin)
-- eth_jpy (Ethereum)
-- etc_jpy (Ethereum Classic)
-- lsk_jpy (Lisk)
-- mona_jpy (Monacoin)
-- plt_jpy (Palette Token)
-- fnct_jpy (Finnexus)
-- dai_jpy (Dai)
-- wbtc_jpy (Wrapped Bitcoin)
-- doge_jpy (Dogecoin)
-- And more...
+- btc_jpy（ビットコイン）
+- eth_jpy（イーサリアム）
+- etc_jpy（イーサリアムクラシック）
+- lsk_jpy（リスク）
+- mona_jpy（モナコイン）
+- plt_jpy（パレットトークン）
+- fnct_jpy（フィネクサス）
+- dai_jpy（ダイ）
+- wbtc_jpy（ラップドビットコイン）
+- doge_jpy（ドージコイン）
+- その他多数...
 
-## Security Notes
+## セキュリティに関する注意事項
 
-- Never commit your API credentials to version control
-- Keep your API keys secure and rotate them regularly
-- Use environment variables for credentials when possible
-- Be cautious when creating orders - always double-check amounts and rates
+- APIクレデンシャルを絶対にバージョン管理にコミットしない
+- APIキーを安全に保管し、定期的にローテーションする
+- 可能な限り環境変数でクレデンシャルを管理する
+- 注文作成時は注意深く - 金額とレートを必ず二重確認する
 
-## Troubleshooting
+## トラブルシューティング
 
-### MCP Server Not Connecting
-1. Check that the binary path in Claude Desktop config is correct
-2. Ensure the binary has execute permissions: `chmod +x coincheck-mcp-server`
-3. Verify API credentials are correctly set
-4. Check logs at `~/.config/Claude/logs/mcp-server-coincheck.log`
+### MCPサーバーが接続されない場合
+1. Claude Desktop設定のバイナリパスが正しいか確認
+2. バイナリに実行権限があるか確認: `chmod +x coincheck-mcp-server`
+3. APIクレデンシャルが正しく設定されているか確認
+4. ログを確認: `~/.config/Claude/logs/mcp-server-coincheck.log`
 
-### API Errors
-- Ensure your API key has the necessary permissions
-- Check that you're using valid trading pairs
-- Verify your account has sufficient balance for trades
+### APIエラー
+- APIキーに必要な権限があるか確認
+- 有効な取引ペアを使用しているか確認
+- 取引に必要な残高があるか確認
 
-## Development
+## 開発
 
-### Building from Source
+### ソースからのビルド
 ```bash
 go mod download
 go build -o coincheck-mcp-server main.go
 ```
 
-### Running Tests
-```bash
-go test ./...
-```
 
-## License
+## ライセンス
 
-MIT License
+MITライセンス
 
-## Acknowledgments
+## 謝辞
 
-- Built with [go-coincheck](https://github.com/sg3t41/go-coincheck) library
-- Implements the [Model Context Protocol](https://modelcontextprotocol.io/)
-- For use with [Claude Desktop](https://claude.ai/download)
+- [go-coincheck](https://github.com/sg3t41/go-coincheck)ライブラリを使用して構築
+- [Model Context Protocol](https://modelcontextprotocol.io/)を実装
+- [Claude Desktop](https://claude.ai/download)で使用

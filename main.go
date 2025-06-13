@@ -388,12 +388,22 @@ func (s *MCPServer) handleRequest(req MCPRequest) MCPResponse {
 			}
 		}
 
+		// JSONエンコードして構造体の内容を適切に表示
+		resultJSON, err := json.MarshalIndent(result, "", "  ")
+		if err != nil {
+			return MCPResponse{
+				Jsonrpc: "2.0",
+				Error:   &MCPError{Code: -32603, Message: fmt.Sprintf("Failed to marshal result: %v", err)},
+				ID:      req.ID,
+			}
+		}
+		
 		return MCPResponse{
 			Jsonrpc: "2.0",
 			Result: map[string]interface{}{"content": []map[string]interface{}{
 				{
 					"type": "text",
-					"text": fmt.Sprintf("Tool %s executed successfully. Result: %+v", toolName, result),
+					"text": fmt.Sprintf("Tool %s executed successfully. Result:\n%s", toolName, string(resultJSON)),
 				},
 			}},
 			ID: req.ID,

@@ -65,6 +65,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_ticker",
 			Description: "Get current ticker information for a trading pair",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -79,6 +80,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_trades",
 			Description: "Get recent trades for a trading pair",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -93,6 +95,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_orderbook",
 			Description: "Get order book data for a trading pair",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -107,6 +110,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_exchange_status",
 			Description: "Get exchange status for a trading pair",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -121,6 +125,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "calculate_order_rate",
 			Description: "Calculate order rate for buy/sell orders",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -150,6 +155,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_balance",
 			Description: "Get account balance information",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type":       "object",
 				"properties": map[string]interface{}{},
 			},
@@ -158,6 +164,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_accounts",
 			Description: "Get account information",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type":       "object",
 				"properties": map[string]interface{}{},
 			},
@@ -167,6 +174,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_transactions",
 			Description: "Get transaction history",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type":       "object",
 				"properties": map[string]interface{}{},
 			},
@@ -175,6 +183,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_open_orders",
 			Description: "Get list of open orders",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type":       "object",
 				"properties": map[string]interface{}{},
 			},
@@ -183,6 +192,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "create_order",
 			Description: "Create a new buy/sell order",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"pair": map[string]interface{}{
@@ -211,6 +221,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "cancel_order",
 			Description: "Cancel an existing order",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"order_id": map[string]interface{}{
@@ -225,6 +236,7 @@ func (s *MCPServer) handleListTools() []Tool {
 			Name:        "get_order",
 			Description: "Get details of a specific order",
 			InputSchema: map[string]interface{}{
+				"$schema": "http://json-schema.org/draft-07/schema#",
 				"type": "object",
 				"properties": map[string]interface{}{
 					"order_id": map[string]interface{}{

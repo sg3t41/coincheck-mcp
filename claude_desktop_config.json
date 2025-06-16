@@ -5,7 +5,7 @@
       "args": ["mcp", "serve"]
     },
     "coincheck": {
-      "command": "/home/sg3t41/workspace/auto_investment/coincheck-mcp-server",
+      "command": "/home/sg3t41/workspace/coincheck-mcp-server/coincheck-mcp-server",
       "env": {
         "COINCHECK_API_KEY": "your_api_key_here",
         "COINCHECK_API_SECRET": "your_api_secret_here"

@@ -1,4 +1,4 @@
-module github.com/sg3t41/coincheck-mcp-server
+module github.com/sg3t41/coincheck-mcp
 
 go 1.24.2
 

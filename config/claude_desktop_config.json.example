@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "coincheck": {
+      "command": "~/workspace/coincheck-mcp/coincheck-mcp",
+      "args": ["--config", "~/workspace/coincheck-mcp/coincheck_config.json"]
+    }
+  }
+}

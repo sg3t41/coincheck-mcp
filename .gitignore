@@ -38,8 +38,25 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-coincheck-mcp-server
+build/
 *.log
 *.pid
 tmp/
 temp/
+
+# Configuration files with sensitive data
+config/coincheck_config.json
+*.config.json
+api-keys.json
+secrets.json
+.secrets
+.credentials
+
+# Local Claude Desktop configuration
+claude_desktop_config.json
+
+# Claude Code settings
+.claude/
+
+# Keep example files
+!config/*.example
